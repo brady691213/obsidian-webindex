@@ -6,7 +6,7 @@ import {WebIndexBasicSettingsTab} from "./src/WebIndexBasicSettingsTab"
 
 export default class ObsidianWebIndex extends Plugin {
 	settings: WebIndexSettings
-
+    
 	async onload() {
 		await this.loadSettings()
 
@@ -16,8 +16,6 @@ export default class ObsidianWebIndex extends Plugin {
 		// TODO: What should this class do?
 		ribbonIconEl.addClass('my-plugin-ribbon-class')
 
-		// Does not work on mobile apps.
-		// TODO: Find mobile app equivalent of this.
 		// TODO: Store this somewhere so I can use it for various messages.
 		const statusBarItemEl = this.addStatusBarItem()
 		statusBarItemEl.setText('WebIndex enabled.')
