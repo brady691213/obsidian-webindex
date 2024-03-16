@@ -1,7 +1,7 @@
 ﻿import {App, PluginSettingTab, Setting} from "obsidian"
 import ObsidianWebIndex from "../main"
 
-class WebIndexBasicSettingTab extends PluginSettingTab {
+export class WebIndexBasicSettingsTab extends PluginSettingTab {
 	plugin: ObsidianWebIndex
 
 	constructor(app: App, plugin: ObsidianWebIndex) {

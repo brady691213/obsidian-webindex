@@ -1,6 +1,7 @@
 import {App, Editor, MarkdownView, Notice, Plugin, PluginSettingTab, Setting} from 'obsidian'
 import {DEFAULT_SETTINGS, WebIndexSettings} from "./src/webIndexSettings"
 import {SimpleModal} from "./src/utils/SimpleModal"
+import {WebIndexBasicSettingsTab} from "./src/WebIndexBasicSettingsTab"
 
 
 export default class ObsidianWebIndex extends Plugin {
@@ -52,8 +53,8 @@ export default class ObsidianWebIndex extends Plugin {
 			}
 		})
 
-		// This adds a settings tab so the user can configure various aspects of the plugin
-		this.addSettingTab(new WebIndexBasicSettingTab(this.app, this))
+		// TODO: The real tab
+		this.addSettingTab(new WebIndexBasicSettingsTab(this.app, this))
 
 		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)
 		// Using this function will automatically remove the event listener when this plugin is disabled.
@@ -65,12 +66,8 @@ export default class ObsidianWebIndex extends Plugin {
 		this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000))
 	}
 
-	onunload() {
-
-	}
-
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData())
+		this.settings = {...DEFAULT_SETTINGS, ...await this.loadData()}
 	}
 
 	async saveSettings() {

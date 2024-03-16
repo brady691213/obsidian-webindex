@@ -14,12 +14,12 @@ export class SimpleModal extends Modal {
 		const {contentEl} = this
 		contentEl.empty()
 	}
-
-	open() {
+	
+	openWithText(text: string) {
 		const {contentEl} = this
 		contentEl.createEl("h2", {text: "Simple Modal"})
 		contentEl.createEl("p", {text: "This is a simple modal."})
-		contentEl.createEl("p", {text: "It\"s not very useful, but it shows how to create a modal."})
+		contentEl.createEl("p", {text: "It\"s not very useful, but it blocks and takes up screen space."})
 		super.open()
 	}
 }
